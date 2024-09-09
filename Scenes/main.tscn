@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://iakdcdkl0k3"]
+[gd_scene load_steps=6 format=3 uid="uid://iakdcdkl0k3"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_oyxy4"]
 [ext_resource type="PackedScene" uid="uid://cdrb1v55l3wsg" path="res://Scenes/ant.tscn" id="2_xk116"]
 [ext_resource type="PackedScene" uid="uid://bnlg1s8o4dcly" path="res://Scenes/hill.tscn" id="3_xh6ek"]
 [ext_resource type="PackedScene" uid="uid://vfngiajb1s1p" path="res://Scenes/ui.tscn" id="4_6s2p3"]
 [ext_resource type="PackedScene" uid="uid://dfs07wpgiriee" path="res://Scenes/camera.tscn" id="4_k7aoj"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_oyxy4")
 
 [node name="Ant" parent="." instance=ExtResource("2_xk116")]
-position = Vector2(117, 736)
+position = Vector2(5704, 774)
 
 [node name="Hill" parent="." instance=ExtResource("3_xh6ek")]
 position = Vector2(5041, 1080)
@@ -21,3 +23,10 @@ position_smoothing_speed = 15.0
 [node name="UIContainer" type="CanvasLayer" parent="Camera"]
 
 [node name="UI" parent="Camera/UIContainer" instance=ExtResource("4_6s2p3")]
+
+[node name="ResourceDeposits" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DepositRayCast" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 2160)
