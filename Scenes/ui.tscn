@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://vfngiajb1s1p"]
+
+[ext_resource type="PackedScene" uid="uid://c6q7vvtuiq61v" path="res://Scenes/mini_map.tscn" id="1_xv5hw"]
+
+[node name="UI" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="MiniMap" parent="." instance=ExtResource("1_xv5hw")]
+layout_mode = 1

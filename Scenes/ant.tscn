@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdrb1v55l3wsg"]
+
+[ext_resource type="Script" path="res://Scripts/ant.gd" id="1_eayui"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55rd4"]
+radius = 15.0
+height = 76.0
+
+[node name="Ant" type="CharacterBody2D"]
+physics_interpolation_mode = 1
+floor_constant_speed = true
+floor_max_angle = 1.74533
+script = ExtResource("1_eayui")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -38)
+shape = SubResource("CapsuleShape2D_55rd4")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, -1.43051e-05)
+scale = Vector2(1.5, 1.52)
+color = Color(0.694118, 0.176471, 0, 1)
+polygon = PackedVector2Array(-10, -50, 10, -50, 10, 0, -10, 0)
+
+[node name="DownRayCast" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 150)
+
+[node name="GroundRayCast" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 150)
+
+[node name="JumpHeightTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="JumpHeightTimer" to="." method="_on_jump_height_timer_timeout"]
+[connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
