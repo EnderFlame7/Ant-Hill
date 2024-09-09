@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 	elif Global.mini_map.in_use:
 		global_position = lerp(global_position, Global.mini_map.get_map_to_camera_coords(), 30 * delta)
 	else:
-		global_position = lerp(global_position, Global.player.global_position, 15 * delta)
+		pass
